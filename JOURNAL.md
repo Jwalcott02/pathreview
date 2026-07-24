@@ -24,7 +24,7 @@
 
 ## Week 8 — Reproduction & solution planning
 
-**Reproduction commit link:** [link to commit documenting the reproduced issue]
+**Reproduction commit link:** [https://github.com/Jwalcott02/pathreview/commit/ba91c39]
 
 **Reproduction summary:**
 [Reproduced by temporarily reverting to the pre-fix code and calling curl http://localhost:8000/health, which triggered redis_health_check_failed error=\"'Settings' object has no attribute 'redis_host'\" in the server logs confirming the AttributeError occurs exactly as described in the issue.]
