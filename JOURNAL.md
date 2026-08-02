@@ -35,3 +35,26 @@
 
 **Blockers or open questions:**
 [Anything you're still uncertain about going into Week 9, or leave blank]
+
+
+
+
+## Week 9 — Solution building & PR submission
+
+### Check-in 1 (mid-week)
+
+**Current progress:** Implemented the fix (redis.Redis.from_url() replacing the broken host/port kwargs), added the first test coverage for /health (2 passing tests), and established a documented baseline of pre-existing lint/type/test failures unrelated to this issue.
+
+**Next steps:** Open the PR, write the full PR description, and complete Check-in 2.
+
+**Blockers:** None — ready to open the PR.
+---
+
+#### Check-in 2 (end of week)
+
+**PR link:** [https://github.com/ascherj/pathreview/pull/590]
+**Branch:** fix/155-redis-host-attributeerror
+**What you built:** Fixed the /health Redis check by using redis.Redis.from_url(settings.redis_url) instead of nonexistent redis_host/redis_port fields; added first-ever test coverage for the endpoint (2 passing tests covering healthy and unhealthy Redis states).
+**Tests added or updated:** tests/unit/test_health.py — new file, 2 tests.
+**Self-review confirmation:** [x] make check passes (no new failures introduced) [x] make test-unit passes (no new failures introduced)
+**Draft PR feedback received from:** none (submitted directly due to time constraints)
