@@ -58,3 +58,37 @@
 **Tests added or updated:** tests/unit/test_health.py — new file, 2 tests.
 **Self-review confirmation:** [x] make check passes (no new failures introduced) [x] make test-unit passes (no new failures introduced)
 **Draft PR feedback received from:** none (submitted directly due to time constraints)
+
+
+
+
+## Week 10 — Iteration & reflection
+
+### Reviewer feedback
+
+**Feedback received:** [ ] Yes  [X] No — still awaiting review
+
+**Summary of feedback:**
+No review feedback received (not a feature in Summer 2026 per course note).
+
+**How you responded:**
+N/A
+
+---
+
+### Reflection
+
+**What was harder than you expected?**
+Environment setup took far longer than anticipated. PowerShell doesn't support the Makefile's Unix syntax (wait, trap, &), so I had to switch to Git Bash mid-week, and Docker Desktop needing to be manually started each session caused repeated, confusing connection errors that looked like code bugs but were actually just infrastructure not running.
+
+**What did you learn about working in a large codebase?**
+Fixing the actual bug was small, but understanding it safely required reading multiple files (health.py, config.py) and running mypy and tests before and after to prove I hadn't broken anything else. In a codebase with 179 pre-existing lint errors and 53 pre-existing test failures, "my change is correct" isn't enough; you have to prove "my change didn't make things worse."
+
+**How did AI tools help — and where did they fall short?**
+AI was most useful for explaining unfamiliar tooling (git rebase, PowerShell vs Bash differences, mypy error messages) and for structuring tests I hadn't written before. It fell short on the actual judgment calls, like choosing redis.Redis.from_url() over adding new Settings fields, which required understanding this specific codebase's conventions, not something AI could decide for me.
+
+**What would you do differently if you started over?**
+I'd check docs/SETUP.md before troubleshooting environment issues by hand. I spent significant time fighting PowerShell and Makefile incompatibilities that the setup guide explicitly warned about upfront.
+
+**What are you most proud of from this module?**
+Finding that redis_port was also missing from Settings, beyond what the original issue text mentioned, and that the health check's broad exception handling was silently reporting false "unhealthy" statuses even when Redis was actually fine.
